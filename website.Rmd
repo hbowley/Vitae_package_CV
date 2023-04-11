@@ -1,0 +1,14 @@
+---
+title: "Untitled"
+author: "Hannah Bowley"
+date: "2023-03-27"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r image-ref-for-in-text, echo = FALSE, message=FALSE, fig.align='center', fig.cap='CV', out.width="100%", out.height="100%" }
+knitr::include_graphics("Untitled.pdf")
+```

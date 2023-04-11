@@ -131,7 +131,7 @@ publications %>%
 ```{r}
 tribble(
   ~skills, ~area,
-  "Programming Languages", "R, Python, SAS",
+  "Programming Languages", "R, Python, SAS, SQL", 
   "Software", "STATA, SPSS, Microsoft Office Suite, RedCap, Qualtrics",
   "Reproducible Report", "Quarto, Markdown, LaTex, Jupyter Notebooks",
   "Languages", "English, Spanish"

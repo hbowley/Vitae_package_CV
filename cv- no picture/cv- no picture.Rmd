@@ -1,0 +1,143 @@
+---
+name: Hannah
+surname: Bowley
+position: Data Scientist
+address: Miami, FL
+phone: +1 305 588 6611
+pronouns: she/her
+email: hannah.marie.bowley@gmail.com
+github: hbowley
+linkedin: hannahbowley1
+date: "`r format(Sys.time(), '%B %Y')`"
+aboutme: Data Scientist and Organizational Strategist skilled in biostatistics, R
+  programming and data visualization
+output:
+  vitae::awesomecv: default
+  pdf_document: default
+  
+---
+
+\newcounter{bib}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(tidyverse)
+library(RefManageR)
+
+
+## Read bib files
+posters <- bibliography_entries("posters.bib")
+publications <- bibliography_entries("publications.bib")
+```
+
+# Education
+
+```{r}
+library(tibble)
+tribble(
+  ~ Degree, ~ Year, ~ Institution, ~ Where,
+  "Florida State University", "2018", "Bachelor of Science- Psychology", "Tallahassee, FL",
+  "Florida International University", "2022", "Master of Public Health- Biostatistics", "Miami, FL"
+) %>% 
+  detailed_entries(Degree, Year, Institution, Where)
+```
+
+# Professional Experience
+
+```{r}
+tribble(
+~title, ~unit, ~startMonth, ~startYear, ~endMonth, ~endYear, ~where, ~detail, 
+"Research Coordinator", "Florida International University- Project on Language and Spatial Development", "February", "2020", "Present", NA, "Miami, FL", "Project Seahorse (Spatial Expertise and Hippocampal Regional Structure) Study - examining the relationship between individual differences in hippocampal structure and functioning to individual differences in children's spatial ability.
+\\begin{itemize}
+\\item Longitudinal and cross- sectional data Analysis, management and dissemination of findings at conferences
+\\item Managed project operations for R01 grant, including writing and amending IRB protocols, grant related progress reports and managing budget.
+\\item Conducted community outreach and oversaw participant recruitment, scheduling and completion of study visits, included neuroimaging visits, behavioral data collection and parent- child interviews. 
+\\item Trained and completed quality control cheacks on structural MRI data using the software Freesurfer
+\\item Completed hippocampal ROI tracing and segmentation using the software AFNI
+\\item Oversaw and trained a team of research assistants
+\\end{itemize}",
+
+"Teaching Fellow", "Research Center for Minority Institutions (RCMI) Consortium", "October", "2022", "Present", NA, "Remote", "Data Science instructor of R programming Language using R for Reproducible Scientific Analysis Data Carpentry curriculum ",
+
+"Biostatistics Practicum", "Florida International University- Developmental Cognitive Neuroscience Laboratory", "May", "2022", "Present", NA, "Miami, FL", "Adolescent Brain Cognitive Development Study (ABCD) Substudy- Effects of Stimulant Medication on Brain Development
+\\begin{itemize}
+\\item Created R scripts to accomplish missing data analysis, propensity matching, and multi-level modeling of effects of medication status on diffusion- weighted imaging metrics
+\\item Developed procedures to check and validate data accuracy as well as wrote scripts to graphically summarize results
+\\end{itemize}",
+
+"Research Assistant", "Florida International University- Substance Use and Neuropsychology Lab", "August", "2018", "February", "2020", "Miami, FL", "Adolescent Brain Cognitive Deevelopment (ABCD) Study- Nationwide longitudinal study focused on the brain, emotional, social, and cognitive development of children to predict future outcomes
+\\begin{itemize}
+\\item Ran child protocol for the ABCD study which includes neuropsychological assessments (e.g., Q-Interactive and NIH Toolbox)
+\\item Administered structured clinical interviews for parents and children in English and Spanish (e.g., KsADS, medication inventories)
+\\item Assisted in scheduling participating families for follow up visits (e.g., phone calls, emails, and text messages)
+\\item Aided in organizing materials for biospecimen collection including hair, saliva and blood samples
+\\item Worked with electronic data entry systems, managed lab website and Fitbit database
+\\end{itemize}",
+
+"Research Assistant", "Florida International University- Program for Attention Learning and Memory Lab", "February", "2019", "February", "2020", "Miami, FL", "Ongoing projects in the lab focused on Neurocognition in children with ADHD and how that understanding can lead to improved treatment methods
+\\begin{itemize}
+\\item Assisted in cognitive appointments with children with an ADHD diagnosis and typically developing children
+\\item Worked with electronic data systems (e.g., REDcap, Sharepoint) and completed tasks involving physiological data cleaning and study analysis (e.g., Actigraphy, MindWare HRV, FaceReader, The Observer)
+\\item Administered and scored the Peabody Picture Vocabulary Test (PPVT) and the Test de Vocabulario en Imagines (TVIP) to children 
+\\end{itemize}",
+
+"Research Assistant", "Florida International University- Neuroinformatics and Brain Connectivity Lab", "September", "2018", "December", "2019", "Miami, FL",
+"Habenula Project: Examining the functional connectiviity of the Habenula
+\\begin{itemize}
+\\item Used the software Mango for ROI tracing of the habenula in over 150 subjects using data from the Human Connectome Project
+\\item Performed quality control checks on functional MRI data from the ABCD study
+\\item Assisted in recruitment for Social and Emotional Aspsects of Academic Success (SEAAS Project)
+\\end{itemize}",
+
+"Research Assistant", "Florida State University- Wilber Lab", "August", "2017", "August", "2018", "Tallahassee, FL", "Ongoing projects in the lab focus on spatial orientation and navigations using rodent models
+\\begin{itemize}
+\\item Assisted in behavioral data collection for a project examining spatial sequence learning and its relation to the parietal cortex
+\\item Aided in infusions of muscimol and saline in rodents and observed brain extractions and perfusions
+\\item Employed matlab for data analysis (e.g. spike sorting/unsorting)
+\\item Created the website for the lab using Drupal and used Adobe Illustrator and Photoshop to create schematics for grant proposals and presentations
+\\end{itemize}"
+
+
+
+) %>%
+   detailed_entries(
+    with = title,
+    what = unit,
+    why = detail,
+    when = glue::glue("{startMonth} {startYear} - {endMonth} {endYear}",.na = ""),
+    where = where, .protect = F
+  )
+```
+
+\refstepcounter{bib}\label{posterstart}
+
+# Presentations
+
+```{r}
+posters%>%
+  arrange(desc(issued), author)
+```
+# Publications 
+```{r}
+publications %>%
+  arrange(desc(issued))
+```
+
+\refstepcounter{bib}\label{posterend}
+
+# Skills
+```{r}
+tribble(
+  ~skills, ~area,
+  "Programming Languages", "R, Python, SAS, SQL", 
+  "Software", "STATA, SPSS, Microsoft Office Suite, RedCap, Qualtrics",
+  "Reproducible Report", "Quarto, Markdown, LaTex, Jupyter Notebooks",
+  "Languages", "English, Spanish"
+)%>%
+  detailed_entries(
+    with = skills,
+    what = area
+  )
+```
+
