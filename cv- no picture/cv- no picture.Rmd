@@ -52,8 +52,8 @@ tribble(
 \\begin{itemize}
 \\item Longitudinal and cross- sectional data Analysis, management and dissemination of findings at conferences
 \\item Managed project operations for R01 grant, including writing and amending IRB protocols, grant related progress reports and managing budget.
-\\item Conducted community outreach and oversaw participant recruitment, scheduling and completion of study visits, included neuroimaging visits, behavioral data collection and parent- child interviews. 
-\\item Trained and completed quality control cheacks on structural MRI data using the software Freesurfer
+\\item Conducted community outreach and oversaw participant recruitment, scheduling and completion of study visits, including neuroimaging visits, behavioral data collection and parent- child interviews. 
+\\item Trained and completed quality control checkss on structural MRI data using the software Freesurfer
 \\item Completed hippocampal ROI tracing and segmentation using the software AFNI
 \\item Oversaw and trained a team of research assistants
 \\end{itemize}",
